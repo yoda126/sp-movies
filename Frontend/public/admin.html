@@ -1,0 +1,131 @@
+<!-- BED assignment 2
+Name: Chian ZhengHang
+Admin number: p2025845
+Class: DISM/FT/2A/01 -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Sp movies</title>
+    <!-- JS, Popper.js, and jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"
+        integrity="sha384-ZvpUoO/+PpLXR1lu4jmpXWu80pZlYUAfxl5NsBMWOEPSjUn/6Z/hRTt8+pR6L4N2"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+        integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+        crossorigin="anonymous"></script>
+    <!--Bootstrap-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+    <!--Axios-->
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+    <!--My style sheets-->
+    <link rel="stylesheet" type="text/css" href="css/admin.css">
+    <link rel="stylesheet" type="text/css" href="css/navbar.css">
+
+    <!--For stars-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!--Javascript-->
+    <script type=text/javascript src="js/navbar.js"></script>
+    <script type=text/javascript src="js/admin.js"></script>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+    <div class="container-fluid navmargin">
+        <div class="row bg-dark fixed-top">
+            <div class="col-lg-2"></div>
+            <div class="col-lg-8 col-md-12">
+                <nav class="navbar navbar-dark bg-dark navbar-expand-lg">
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collaspenav">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="navbar-brand">Sp movies</div>
+                    <div class="collapse navbar-collapse" id="collaspenav">
+                        <ul class="navbar-nav mr-auto" id="navbarul">
+                            <li class="nav-item"><a class="nav-link" href="/">Movies</a> </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown">
+                                    Genre
+                                </a>
+                                <div class="dropdown-menu bg-dark">
+                                </div>
+                            </li>
+                        </ul>
+                        <form class="form-inline" id="searchform">
+                            <select class="form-control mr-2" id="searchtype">
+                                <option>Title</option>
+                                <option>Genre</option>
+                              </select>
+                            <input class="form-control mr-2  pb-sm-2" type="search" placeholder="Search" id="searchstr">
+                            <button class="btn btn-outline-secondary" type="submit">Search</button>
+                        </form>
+                    </div>
+                </nav>
+            </div>
+            <div class="col-lg-2"></div>
+        </div>
+    </div>
+    <section>
+        <form class="row" id="addmovform">
+            <div class="col-lg-3 col-md-1"></div>
+            <div class="form-group col-lg-6 col-md-10 ml-3 mr-3 pb-3 pt-3" id="registerformgroup">
+                <h3 class="text-center">Add movie: </h3>
+                <label for="movietitle">Movie Title: </label>
+                <input type="text" name="movietitle" id="movietitle" class="form-control" required>
+                <label for="movdescription">Description: </label>
+                <textarea type="text" name="movdescription" id="movdescription" class="form-control" required></textarea>
+                <label for="cast">Cast:</label>
+                <input type="text" name="cast" id="cast" class="form-control" required>
+                <label for="opendate">Opening date:</label>
+                <input type="text" name="opendate" id="opendate" class="form-control" required>
+                <div class="mt-2">Genre:</div>
+                <div class="form-check" id="genrecheckboxes">
+                </div>
+                <label for="time">Duration:</label>
+                <input type="text" name="time" id="time" class="mb-2 mt-2" required>mins<br>
+                <label for="movieimg">Image for movie:</label>
+                <input type="file" id="movieimg" name="movieimg" class="mb-2"><br>
+                <input type="submit" name="register" class="btn btn-secondary btn-md" value="Add movie">
+            </div>
+            <div class="col-lg-3 col-md-1"></div>
+        </form>
+        <form class="row" id="addscreentimeform">
+            <div class="col-lg-3 col-md-1"></div>
+            <div class="form-group col-lg-6 col-md-10 ml-3 mr-3 pb-3 pt-3" id="registerformgroup">
+                <h3 class="text-center">Add screeningtime:</h3>
+                <label for="movieselect">Movie:</label>
+                <select class="form-control" id="movieselect">
+                </select>
+                <label for="screentime">Screening time:</label>
+                <input type="text" name="screentime" id="screentime" class="form-control mb-2" required>
+                <input type="submit" name="register" class="btn btn-secondary btn-md" value="Add screening time">
+            </div>
+            <div class="col-lg-3 col-md-1"></div>
+        </form>
+        <form class="row" id="addgenreform">
+            <div class="col-lg-3 col-md-1"></div>
+            <div class="form-group col-lg-6 col-md-10 ml-3 mr-3 pb-3 pt-3" id="registerformgroup">
+                <h3 class="text-center">Add genre: </h3>
+                <label for="genrename">Genre: </label>
+                <input type="text" name="genrename" id="genrename" class="form-control" required>
+                <label for="genredescription">Description: </label>
+                <textarea type="text" name="genredescription" id="genredescription" class="form-control mb-2" required></textarea>
+                <input type="submit" name="register" class="btn btn-secondary btn-md" value="Add genre">
+            </div>
+            <div class="col-lg-3 col-md-1"></div>
+        </form>
+    </section>
+
+
+</body>
+
+</html>

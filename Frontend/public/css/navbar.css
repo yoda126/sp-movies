@@ -1,0 +1,21 @@
+/* BED assignment 2
+Name: Chian ZhengHang
+Admin number: p2025845
+Class: DISM/FT/2A/01 */
+.dropdown-menu a{
+    color: rgba(255,255,255,.7);
+}
+
+.card-img-top {
+    width: 100%; 
+    height: 30vh;
+}
+
+#movieimage {
+    width: 100%; 
+    height: 60vh;
+}
+
+.checked {
+    color: orange;
+}
